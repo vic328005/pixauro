@@ -1,0 +1,12 @@
+{
+  "canvasWidth": 64,
+  "canvasHeight": 64,
+  "pixelation": {
+    "pixelSize": 64,
+    "colors": 16,
+    "workingSize": 1024,
+    "maxIterations": 500
+  },
+  "background": "pixel",
+  "sourceBackgroundEdge": 0
+}

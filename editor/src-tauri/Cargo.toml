@@ -1,0 +1,34 @@
+[package]
+name = "pixauro_editor"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Pixauro Tauri 桌面应用层与类型安全 IPC"
+default-run = "pixauro"
+
+[lib]
+name = "pixauro_editor"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pixauro"
+path = "src/main.rs"
+
+[[bin]]
+name = "export-bindings"
+path = "src/bin/export_bindings.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+pixauro_engine = { path = "../../engine", features = ["bindings"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.152"
+tempfile = "3.27.0"
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+specta = { version = "=2.0.0-rc.22", features = ["derive"] }
+specta-typescript = "=0.0.9"
+tauri-specta = { version = "=2.0.0-rc.21", features = ["typescript"] }
+tauri-plugin-window-state = "2"

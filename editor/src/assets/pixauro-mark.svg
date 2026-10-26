@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" width="18" height="18" shape-rendering="crispEdges">
+  <!-- Pixauro 标志：炼金术里代表"金"的 ☉，画在 9×9 像素网格上。用于深色背景。
+       只按 9 的整数倍显示（18 / 27 / 36 / 54 / 144 px），否则像素会糊。 -->
+  <path fill="#e5b85c" d="M4 0h3v1H4zM7 1h1v1H7zM8 2h1v3H8zM0 4h1v3H0zM1 7h1v1H1zM2 8h1v1H2z"/>
+  <path fill="#efd49d" d="M2 0h2v1H2zM1 1h1v1H1zM0 2h1v2H0zM4 4h1v1H4z"/>
+  <path fill="#a08140" d="M8 5h1v2H8zM7 7h1v1H7zM3 8h4v1H3z"/>
+</svg>

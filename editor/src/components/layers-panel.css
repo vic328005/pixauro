@@ -1,0 +1,286 @@
+/*
+ * Pixauro · Layers panel
+ * 颜色、圆角、字体都读 tokens.css 里的 --px-* 变量；没引入 tokens.css 时用括号里的默认值。
+ * 状态全部靠明度区分，不用强调色（见 DESIGN.md）。
+ */
+
+.pxl-panel {
+  /* 面板内部用到、tokens.css 里没有的两档文字色 */
+  --pxl-text-row: #c9c9ce; /* 未选中图层的名称、图标 */
+  --pxl-text-dim: #6f6f77; /* 隐藏图层的名称、眼睛图标 */
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--px-bg-1, #1e1e21);
+  color: var(--px-text-1, #ececee);
+  font: var(--px-text-base, 13px)/1.4
+    var(--px-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pxl-panel button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.pxl-panel button:disabled {
+  cursor: default;
+  color: var(--px-text-3, #5f5f66);
+}
+.pxl-panel svg {
+  display: block;
+  flex: none;
+}
+.pxl-panel :focus-visible {
+  outline: 2px solid var(--px-accent, #e5b85c);
+  outline-offset: -2px;
+}
+
+/* ---------- 不透明度 ---------- */
+.pxl-opacity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--px-line, #2f2f34);
+}
+.pxl-opacity label {
+  color: var(--px-text-2, #9a9aa2);
+}
+.pxl-opacity input {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  accent-color: var(--pxl-text-row);
+}
+.pxl-opacity input:disabled {
+  opacity: 0.4;
+}
+.pxl-opacity output {
+  width: 38px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 列表 ---------- */
+.pxl-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pxl-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--px-radius-m, 3px);
+}
+.pxl-row[data-active='true'] {
+  background: var(--px-bg-3, #37373c);
+}
+
+/* 眼睛、锁 */
+.pxl-icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--px-radius-s, 2px);
+}
+.pxl-icon:hover {
+  background: var(--px-bg-2, #2a2a2e);
+}
+.pxl-row[data-active='true'] .pxl-icon:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.pxl-panel .pxl-vis {
+  color: var(--pxl-text-row);
+}
+.pxl-panel .pxl-row[data-hidden='true'] .pxl-vis {
+  color: var(--pxl-text-dim);
+}
+.pxl-panel .pxl-lock {
+  color: var(--px-text-3, #5f5f66);
+} /* 没锁：很淡，不抢视线 */
+.pxl-panel .pxl-row[data-locked='true'] .pxl-lock {
+  color: var(--px-text-1, #ececee);
+}
+
+/* 选择区：缩略图 + 名称 + 不透明度 */
+.pxl-panel .pxl-select {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 6px;
+  border-radius: var(--px-radius-s, 2px);
+  text-align: left;
+  color: var(--pxl-text-row);
+}
+.pxl-select:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.pxl-panel .pxl-row[data-active='true'] .pxl-select {
+  color: var(--px-text-1, #ececee);
+}
+.pxl-panel .pxl-row[data-hidden='true'] .pxl-select {
+  color: var(--pxl-text-dim);
+}
+.pxl-panel .pxl-row[data-hidden='true'][data-active='true'] .pxl-select {
+  color: var(--px-text-2, #9a9aa2);
+}
+
+.pxl-thumb {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
+.pxl-thumb-art {
+  display: block;
+  background-color: var(--px-checker-dark-a, #45454a);
+  background-image: conic-gradient(
+    var(--px-checker-dark-b, #535358) 25%,
+    transparent 0 50%,
+    var(--px-checker-dark-b, #535358) 0 75%,
+    transparent 0
+  );
+}
+.pxl-thumb canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.pxl-row[data-hidden='true'] .pxl-thumb {
+  opacity: 0.4;
+}
+
+.pxl-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pxl-tag {
+  flex: none;
+  color: var(--px-text-2, #9a9aa2);
+  font-size: var(--px-text-xs, 11px);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 重命名输入框 */
+.pxl-rename {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  margin: 3px 2px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: var(--px-radius-s, 2px);
+  background: var(--px-bg-0, #161618);
+  color: var(--px-text-1, #ececee);
+  font: inherit;
+  box-sizing: border-box;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* ---------- 拖动排序 ---------- */
+.pxl-row.is-dragging {
+  opacity: 0.5;
+}
+.pxl-row[data-drop='before']::before,
+.pxl-row[data-drop='after']::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--px-text-1, #ececee); /* 插入线用中性色，不用强调色 */
+  pointer-events: none;
+}
+.pxl-row[data-drop='before']::before {
+  top: -2px;
+}
+.pxl-row[data-drop='after']::after {
+  bottom: -2px;
+}
+.pxl-panel.is-reordering,
+.pxl-panel.is-reordering * {
+  cursor: grabbing !important;
+}
+
+/* ---------- 底部操作 ---------- */
+.pxl-footer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 8px;
+  border-top: 1px solid var(--px-line, #2f2f34);
+}
+.pxl-footer .pxl-spacer {
+  flex: 1;
+} /* 删除和其他按钮隔开，避免误点 */
+.pxl-footer button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--px-radius-m, 3px);
+}
+.pxl-footer button:hover:not(:disabled) {
+  background: var(--px-bg-2, #2a2a2e);
+}
+
+/* React/desktop adaptation: preserve native file drop and pointer sorting. */
+.pxl-panel {
+  overflow: hidden;
+}
+.pxl-opacity,
+.pxl-footer {
+  flex-shrink: 0;
+}
+.pxl-list {
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--px-bg-3) transparent;
+}
+.pxl-row {
+  flex-shrink: 0;
+}
+.pxl-select {
+  touch-action: none;
+}
+.pxl-panel .pxl-footer button {
+  flex-shrink: 0;
+}
+.pxl-panel .pxl-rename {
+  width: 0;
+}
+.pxl-panel .pxl-lock svg {
+  width: 14px;
+  height: 14px;
+}

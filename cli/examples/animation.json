@@ -1,0 +1,23 @@
+{
+  "options": {
+    "canvasWidth": 64,
+    "canvasHeight": 64,
+    "pixelation": {
+      "pixelSize": 64,
+      "colors": 16,
+      "workingSize": 1024,
+      "maxIterations": 500
+    },
+    "background": "source",
+    "sourceBackgroundEdge": 0
+  },
+  "layout": {
+    "kind": "grid",
+    "grid": { "rows": 2, "columns": 4, "margin": 0, "gap": 0 }
+  },
+  "groups": [
+    { "name": "Idle", "fps": 10 },
+    { "name": "Run", "fps": 12 }
+  ],
+  "autoLocate": "both"
+}

@@ -1,0 +1,16 @@
+[package]
+name = "pixauro_cli"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Pixauro 图片像素化与动画资源命令行工具"
+
+[[bin]]
+name = "pixauro-cli"
+path = "src/main.rs"
+
+[dependencies]
+pixauro_engine = { path = "../engine" }
+serde = "1.0.229"
+serde_json = "1.0.152"
+ctrlc = "3.5.2"

@@ -1,0 +1,21 @@
+[package]
+name = "pixauro_engine"
+version = "0.1.0"
+edition = "2024"
+description = "Pixauro 像素创作引擎：项目、调色板、画布、绘图与 JSON 存储"
+
+[features]
+bindings = ["dep:specta"]
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive", "rc"] }
+serde_json = "1.0.152"
+tempfile = "3.27.0"
+uuid = { version = "1.28.0", features = ["v4", "serde"] }
+typetag = "0.2.23"
+png = "0.18.1"
+indexmap = "2.14.2"
+pixelart-abstraction = { path = "../pixelart-abstraction" }
+specta = { version = "=2.0.0-rc.22", features = ["derive"], optional = true }
+gif = "0.14"
+color_quant = "1.1"

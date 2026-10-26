@@ -1,0 +1,19 @@
+target/
+.DS_Store
+
+# 本地 IDE 配置
+.idea/
+.run/
+.vscode/
+.fleet/
+.vs/
+*.iml
+*.ipr
+*.iws
+*.code-workspace
+qa-screenshots/
+tmp
+node_modules/
+dist/
+editor/src-tauri/gen/schemas/
+tmp/test01.json

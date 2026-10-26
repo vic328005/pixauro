@@ -1,0 +1,18 @@
+[package]
+name = "pixelart-abstraction"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+publish = false
+license = "MIT"
+description = "Pixel art abstraction with transparency support for Pixauro"
+
+[features]
+default = ["parallel"]
+parallel = ["dep:rayon"]
+
+[dependencies]
+rayon = { version = "1.12", optional = true }
+
+[lints.rust]
+unsafe_code = "forbid"

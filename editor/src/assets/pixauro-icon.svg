@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" shape-rendering="crispEdges">
+  <!-- App 图标源图，1024×1024 方形底。圆角和留边按各平台规范在导出时处理。
+       标志放大 64 倍（576px）居中，保持整数倍。 -->
+  <rect width="1024" height="1024" fill="#1e1e21"/>
+  <g transform="translate(224 224) scale(64)">
+    <path fill="#e5b85c" d="M4 0h3v1H4zM7 1h1v1H7zM8 2h1v3H8zM0 4h1v3H0zM1 7h1v1H1zM2 8h1v1H2z"/>
+    <path fill="#efd49d" d="M2 0h2v1H2zM1 1h1v1H1zM0 2h1v2H0zM4 4h1v1H4z"/>
+    <path fill="#a08140" d="M8 5h1v2H8zM7 7h1v1H7zM3 8h4v1H3z"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+.menu-content {
+  z-index: 180;
+  min-width: 180px;
+  max-width: calc(100vw - 16px);
+  max-height: var(--radix-popper-available-height);
+  overflow-y: auto;
+  padding: 4px;
+  background: var(--px-bg-2);
+  color: var(--px-text-1);
+  font: var(--px-text-base)/1.4 var(--px-font);
+  border-radius: var(--px-radius-l);
+  box-shadow: var(--px-shadow-popup);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.menu-item {
+  padding: 8px 10px;
+  border-radius: var(--px-radius-s);
+  cursor: pointer;
+  outline: none;
+  overflow-wrap: anywhere;
+}
+.menu-item[data-highlighted] {
+  background: var(--px-bg-3);
+  color: var(--px-text-1);
+}
+.menu-item[data-disabled] {
+  color: var(--px-text-3);
+  cursor: default;
+}
+.menu-separator {
+  height: 1px;
+  background: var(--px-bg-3);
+  margin: 4px 0;
+}

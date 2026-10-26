@@ -1,0 +1,118 @@
+.animation-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  color: var(--px-text-1);
+  background: var(--px-bg-1);
+  font-size: var(--px-text-base);
+}
+.animation-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  flex-shrink: 0;
+  padding: 0 8px 0 12px;
+  border-bottom: 1px solid var(--px-line);
+}
+.animation-toolbar > span {
+  flex: 1;
+  color: var(--px-text-2);
+  font-size: 12px;
+}
+.animation-toolbar svg {
+  width: 14px;
+  height: 14px;
+}
+.animation-list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 6px;
+}
+.animation-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--px-text-2);
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.animation-item[data-reorderable] {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.animation-list.is-reordering,
+.animation-list.is-reordering * {
+  cursor: grabbing;
+  user-select: none;
+}
+.animation-item[data-dragged] {
+  opacity: 0.45;
+}
+.animation-item[data-drop]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--px-accent);
+  pointer-events: none;
+}
+.animation-item[data-drop='before']::after {
+  top: -1px;
+}
+.animation-item[data-drop='after']::after {
+  bottom: -1px;
+}
+.animation-item:hover {
+  background: var(--px-bg-2);
+}
+.animation-item[aria-pressed='true'] {
+  color: var(--px-text-1);
+  background: var(--px-bg-3);
+}
+.animation-item:focus-visible {
+  outline: 1px solid var(--px-accent);
+  outline-offset: -1px;
+}
+.animation-item:disabled {
+  cursor: default;
+}
+.animation-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.animation-summary {
+  color: var(--px-text-2);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.animation-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--px-line);
+  color: var(--px-text-2);
+}
+.animation-details .commit-field .timeline-input {
+  flex: none;
+  min-width: 0;
+  width: 100%;
+}
+.animation-item[aria-pressed='true'] .animation-summary {
+  color: var(--px-text-1);
+}

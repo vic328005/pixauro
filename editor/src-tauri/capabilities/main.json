@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "主窗口仅可收听原生窗口事件；项目文件与对话框由 Rust 命令管理。",
+  "windows": ["main"],
+  "permissions": ["core:event:default", "core:window:allow-is-focused"]
+}

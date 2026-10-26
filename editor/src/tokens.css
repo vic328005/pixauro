@@ -1,0 +1,73 @@
+/*
+ * Pixauro design tokens · dark theme
+ * 颜色、圆角、字号的唯一来源。什么时候用哪个，见设计规范。
+ */
+:root {
+  /* 表面：四档中性灰，越靠外越暗。不要加色相，不要用半透明彩色叠底。 */
+  --px-bg-0: #161618; /* 外框：顶栏、工具栏、标签条、状态栏 */
+  --px-bg-1: #1e1e21; /* 面板 */
+  --px-bg-2: #2a2a2e; /* 控件：按钮、输入框；幽灵按钮的悬停 */
+  --px-bg-2-hover: #323237; /* 实底按钮的悬停 */
+  --px-bg-3: #37373c; /* 选中 / 按下 */
+  --px-line: #2f2f34; /* 只用来分隔区域，不给控件描边 */
+
+  --px-text-1: #ececee; /* 正文、选中项 */
+  --px-text-2: #9a9aa2; /* 次要信息、未选中项、快捷键 */
+  --px-text-3: #5f5f66; /* 禁用、已撤销的历史 */
+
+  /* 强调色：稀缺资源。只给"现在该做的主操作"、键盘焦点、logo 图形。 */
+  --px-accent: #e5b85c;
+  --px-on-accent: #1d1708;
+
+  /* 画布区：为判色服务 */
+  --px-canvas-surround: #333336;
+  --px-checker-dark-a: #45454a;
+  --px-checker-dark-b: #535358;
+  --px-checker-light-a: #c8c8cc;
+  --px-checker-light-b: #e4e4e8;
+
+  /* 用户颜色上的选中态（色块、颜色预览）：在任何颜色上都看得见 */
+  --px-ring: 0 0 0 2px #0b0b0c, 0 0 0 4px #ffffff;
+  --px-swatch-edge: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* 形状：最大 4px，像素工具要利落 */
+  --px-radius-s: 2px; /* 色块、小图标按钮、分段控件内的按钮 */
+  --px-radius-m: 3px; /* 按钮、列表行 */
+  --px-radius-l: 4px; /* 控件组、浮层 */
+
+  /* 文字 */
+  --px-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --px-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --px-text-title: 14px; /* 面板标题，600 */
+  --px-text-base: 13px;
+  --px-text-sm: 12px;
+  --px-text-xs: 11px;
+
+  /* 间距：4px 网格 */
+  --px-space-1: 4px;
+  --px-space-2: 8px;
+  --px-space-3: 12px;
+  --px-space-4: 16px;
+  --px-space-6: 24px;
+  --px-space-8: 32px;
+
+  --px-control-h: 36px; /* 工具栏按钮高度 */
+}
+
+/* 应用扩展：错误反馈、画布辅助线与浮层仍由同一份 tokens 管理。 */
+:root {
+  --px-danger: #edaaa4;
+  --px-danger-bg: #3b292b;
+  --px-danger-hover: #493033;
+  --px-overlay: rgba(0, 0, 0, 0.6);
+  --px-drop-overlay: rgba(22, 22, 24, 0.94);
+  --px-dock-drop: rgba(236, 236, 238, 0.08);
+  --px-shadow-popup: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --px-shadow-modal: 0 16px 64px rgba(0, 0, 0, 0.5);
+  --px-shadow-canvas: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 10px 30px rgba(0, 0, 0, 0.3);
+  --px-grid: rgba(128, 128, 136, 0.45);
+  --px-cursor-light: #ffffff;
+  --px-cursor-dark: #0b0b0c;
+  --px-cursor-shadow: 0 0 0 1px var(--px-cursor-dark), inset 0 0 0 1px var(--px-cursor-dark);
+  --px-hue-spectrum: linear-gradient(to right, red, #ff0, lime, cyan, blue, #f0f, red);
+}

@@ -1,0 +1,81 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--px-bg-0);
+}
+.settings-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.settings-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+.settings-content h1 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.settings-section {
+  margin-bottom: 20px;
+  padding: 24px;
+  border-radius: var(--px-radius-l);
+  background: var(--px-bg-1);
+}
+.settings-section h2 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.settings-section > p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+}
+.settings-row + .settings-row {
+  margin-top: 12px;
+}
+.settings-row select {
+  width: 160px;
+  max-width: 50%;
+  height: 32px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: var(--px-radius-m);
+  background: var(--px-bg-2);
+  color: var(--px-text-1);
+  font: inherit;
+}
+.settings-row input[type='checkbox'] {
+  accent-color: var(--px-text-2);
+}
+.settings-row :focus-visible {
+  outline: 1px solid var(--px-accent);
+  outline-offset: -1px;
+}
+.settings-row select:disabled {
+  color: var(--px-text-3);
+}
+.settings-details {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 16px;
+  margin: 20px 0 0;
+  line-height: 1.5;
+}
+.settings-details dt {
+  color: var(--px-text-2);
+}
+.settings-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}

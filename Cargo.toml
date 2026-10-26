@@ -1,0 +1,9 @@
+[workspace]
+members = ["cli", "engine", "editor/src-tauri", "pixelart-abstraction"]
+# 默认选择桌面 Rust 宿主；开发启动使用 editor 的 desktop 脚本以同时启动 Vite。
+default-members = ["editor/src-tauri"]
+resolver = "3"
+
+# 迭代算法在桌面开发模式中也需要优化，避免调试构建造成长时间等待。
+[profile.dev.package.pixelart-abstraction]
+opt-level = 3

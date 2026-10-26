@@ -1,0 +1,40 @@
+.inspector-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.inspector-fields .timeline-input {
+  flex: 1;
+  width: 0;
+}
+.inspector-fields .commit-field .timeline-input {
+  flex: none;
+  width: 100%;
+}
+.inspector-fields .property-label {
+  width: 80px;
+  flex-basis: 80px;
+}
+.inspector-fields .property-value {
+  overflow-wrap: anywhere;
+}
+.inspector-fields input[type='checkbox'] {
+  accent-color: var(--px-text-2);
+}
+.inspector-fields input[type='checkbox']:focus-visible {
+  outline: 1px solid var(--px-accent);
+  outline-offset: -1px;
+}
+.inspector-field-help {
+  margin-top: 6px !important;
+}
+.inspector-empty {
+  padding: 16px;
+}
+.inspector-panel .property-heading > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
