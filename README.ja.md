@@ -32,14 +32,11 @@
 
 - Cargo を含む、現行の安定版 Rust ツールチェーン。
 - Node.js と npm。フロントエンドの対応バージョンは `^20.19.0 || ^22.13.0 || >=24` です。
-- アプリアイコンなどのバイナリ素材を取得するための Git LFS。
 - 使用する OS に応じた [Tauri 2 のシステム依存関係](https://v2.tauri.app/start/prerequisites/)。
 
 リポジトリをクローンした後、ルートディレクトリで実行します。
 
 ```sh
-git lfs install --local
-git lfs pull
 npm --prefix editor ci
 npm --prefix editor run desktop
 ```

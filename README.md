@@ -32,14 +32,11 @@ You will need:
 
 - A current stable Rust toolchain with Cargo.
 - Node.js and npm. The frontend accepts Node `^20.19.0 || ^22.13.0 || >=24`.
-- Git LFS for binary assets, including application icons.
 - The system dependencies listed in the [Tauri 2 prerequisites](https://v2.tauri.app/start/prerequisites/) for your OS.
 
 After cloning the repository, run these commands from its root:
 
 ```sh
-git lfs install --local
-git lfs pull
 npm --prefix editor ci
 npm --prefix editor run desktop
 ```

@@ -32,14 +32,11 @@
 
 - 当前稳定版 Rust 工具链，包含 Cargo。
 - Node.js 和 npm。前端支持的 Node 版本为 `^20.19.0 || ^22.13.0 || >=24`。
-- Git LFS，用于拉取应用图标等二进制资源。
 - 对应操作系统的 [Tauri 2 系统依赖](https://v2.tauri.app/start/prerequisites/)。
 
 克隆仓库后，在仓库根目录执行：
 
 ```sh
-git lfs install --local
-git lfs pull
 npm --prefix editor ci
 npm --prefix editor run desktop
 ```

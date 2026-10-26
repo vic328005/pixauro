@@ -17,7 +17,7 @@
 - TypeScript / React 使用 ESLint 检查正确性、Prettier 检查格式。提交前实际通过零警告 lint 和格式检查；保持版本兼容，不忽略工具链兼容警告。
 - 生成文件不手改，也不由 ESLint / Prettier 重写；明确排除，通过真实代码生成及结果比对验证。
 
-- 图片、模型、音视频和字体使用 Git LFS，规则见 [.gitattributes](.gitattributes)。缺少资源时执行 `git lfs install --local`、`git lfs pull`，不要把 LFS 指针当作素材。
+- 图片、模型、音视频和字体直接存入 Git，不使用 Git LFS；二进制属性见 [.gitattributes](.gitattributes)。不要提交 LFS 指针文件。
 
 # Pixauro 开发约定
 
